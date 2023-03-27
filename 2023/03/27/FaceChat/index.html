@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="naughty dog">
+
+
+    <meta name="subtitle" content="个人空间">
+
+
+    <meta name="description" content="测试">
+
+
+    <meta name="keywords" content="blog">
+
+
+<title>FaceChat | naughty dog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Naughty Dog&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">目录</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Naughty Dog&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">文章</a>
+                
+                    <a class="menu-item" href="/category">目录</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开全部</a>
+        <a onclick="go_top()">回到顶部</a>
+        <a onclick="go_bottom()">回到底部</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? '展开全部' : '折叠';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">FaceChat</h1>
+            
+                <div class="post-meta">
+                    
+                        作者: <a itemprop="author" rel="author" href="/">naughty dog</a>
+                    
+
+                    
+                        <span class="post-time">
+                        发布时间: <a href="#">2023-03-27&nbsp;&nbsp;20:13:03</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="FaceChat：一种面向情感感知的面对面对话框架"><a href="#FaceChat：一种面向情感感知的面对面对话框架" class="headerlink" title="FaceChat：一种面向情感感知的面对面对话框架"></a>FaceChat：一种面向情感感知的面对面对话框架</h1><p><em>德玛·阿尔努哈伊特</em>，吴庆阳<em>，余舟  哥伦比亚大学 {daa2182,qw2345,zy2461}@columbia.edu</em></p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>虽然像ChatGPT这样的当前对话系统在基于文本的交互方面取得了重大进展，但它们经常忽视其他模态在增强整体用户体验方面的潜力。我们介绍了FaceChat，一种基于网络的对话框架，可以实现情感敏感和面对面的交流。通过无缝地集成自然语言处理、计算机视觉和语音处理的尖端技术，FaceChat提供了极具沉浸感和吸引力的用户体验。FaceChat框架具有广泛的潜在应用，包括咨询、情感支持和个性化客户服务。该系统旨在作为一个简单灵活的平台，供未来的研究人员推进多模式对话系统领域。代码公开在<a target="_blank" rel="noopener" href="https://github.com/qywu/FaceChat">github</a>。</p>
+<h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><p>最近聊天GPT技术（OpenAI，2021）的进展提升了对话系统的能力，达到了前所未有的人工智能水平。尽管取得了这样的进展，但最先进的模型，如ChatGPT，仅针对文本到文本的交互进行了优化，限制了它们提供自然和沉浸式体验的能力。相比之下，早期的口头对话系统（LuperFoy等，1998；Spiliotopoulos等，2001）旨在促进口头交流，为用户提供更具人类般和引人入胜的体验。</p>
+<p>口头对话系统相对于基于文本的聊天交互具有几个优点。它是许多人更自然和直观的沟通方式，可以使对话更具吸引力和互动性。此外，对于难以打字或阅读文本的个体，口头对话系统可以提供更易于访问和使用的接口。与基于打字的交互相比，它提供了更轻松和随意的氛围，为用户与系统互动创造了更舒适和轻松的环境。</p>
+<p>口头对话系统可以与多模态技术结合使用，创建面对面对话框架，通常在先前的研究中以数字人形式呈现。这种集成可以通过捕捉面部表情和语调等非语言线索提供对用户情感状态更完整的理解，从而实现更具人类般和引人入胜的实时反馈交互。</p>
+<p>我们提出了FaceChat，一款先进的聊天机器人，旨在通过Web浏览器提供无缝和沉浸式的面对面对话体验。情感感知的面对面对话系统的开发面临着几个挑战，包括自然语言理解、非语言线索的解释和实时处理。为了克服这些挑战，使用WebRTC优化了管道，并在基于GPU的服务器上执行了模型，以提供更高效和无缝的用户体验。</p>
+<p>我们的原型采用最新技术，包括WebRTC实现快速数据传输、预训练的语音活动检测器（Team，2021）用于监控用户参与度，基于神经网络的面部检测模型（Liu等，2016）用于准确的情感检测，GPT-3驱动的聊天机器人（Brown等，2020）具有可定制的角色、VITS（Kim等，2021）用于自然文本到语音合成，以及OpenAI的耳语技术用于精确的自动语音识别。FaceChat提供了一个情感敏感和互动对话体验，具有实时的面对面沟通能力。此外，后端完全基于Python构建，易于与流行的深度学习框架集成，以收集视频和语音数据，用于未来多模态对话系统的进一步发展。</p>
+<p>为了促进更先进的多模态对话系统的开发，我们开源了所有实现。此外，大多数服务已经经过优化，可在基于GPU的服务器上执行，消除了对额外支持系统的需求。该代码设计用于在云中运行，使用户能够从任何具有Web浏览器的位置访问服务，提供更高的灵活性和便利性。该代码公开可用于<a target="_blank" rel="noopener" href="https://github.com/qywu/FaceChat">github</a>。</p>
+<p><img src="/img/facechat1.png" alt="图1"><br><strong><center>图1：FaceChat通过Web浏览器提供无缝、实时和面对面的对话体验。</center></strong></p>
+<h2 id="2-相关研究"><a href="#2-相关研究" class="headerlink" title="2.相关研究"></a>2.相关研究</h2><p>对话系统的发展历史丰富而广泛（Chen等人，2017）。在各种类型的对话系统中，开放式系统，也称为闲聊系统，因其促进一般性和非任务特定的对话能力而在该领域受到了广泛关注（Serban等人，2015; Jurafsky和Martin，2018）。<br>对话系统可以是基于文本或基于语音的。基于语音的对话系统（SDS）由López-Cózar等人（2015）定义为通过语音实现逐轮对话的计算机系统。已经提出了许多SDS框架，其中口语是主要的交互模式（Aicher等人，2022; Kraus等人，2022）。<br>多模态对话系统在口语对话系统（SDS）的基础上增加了图像和视频等视觉模态（Rudnicky，2005），从而为用户提供了更沉浸和更具吸引力的对话体验。多模态HALEF（Yu等人，2017）和TickTock（Yu等人，2015）是多模态对话系统的例子，它们通过整合用户参与检测来提高响应质量。其他研究已经探索将对话系统投影到多模态空间中，通过整合图像和视频等视觉上下文（Okur等人，2022; Liu等人，2022; Gan等人，2019）。尽管做出了这些努力，但以前的作品没有整合更新的深度学习模型，并且它们的性能在当前标准方面受到限制。<br>情感感知对话系统是该领域的另一个研究领域。以前的研究探索了通过考虑用户的情感来提高响应质量的方法（Shi和Yu，2018; Firdaus等人，2022）。然而，这些作品在不整合多模态信息的情况下准确检测用户的情感能力有限。在我们的方法中，我们通过将用户的面部表情整合到响应生成过程中实现情感感知。</p>
+<h2 id="3-FaceChat框架"><a href="#3-FaceChat框架" class="headerlink" title="3.FaceChat框架"></a>3.FaceChat框架</h2><p>FaceChat是一种基于Web的面对面情感感知对话框架，集成了几个高级模块，包括Web模块、参与度模块、自动语音识别（ASR）模块、聊天机器人模块、文本转语音（TTS）模块和人脸生成模块。图2展示了FaceChat框架的整体架构。在接下来的几节中，我们将深入探讨每个模块的细节。</p>
+<h3 id="3-1-基于Web的系统"><a href="#3-1-基于Web的系统" class="headerlink" title="3.1 基于Web的系统"></a>3.1 基于Web的系统</h3><p>通过具备基于Web的系统，FaceChat消除了任何额外的设置需求，为所有用户提供了方便的浏览器访问方式。<br>我们利用基于Python的Flask框架（Grinberg，2018）构建我们的应用程序。因此，FaceChat很容易与流行的深度学习包，例如PyTorch（Paszke等，2019）和TensorFlow（Abadi等，2016）进行集成。该系统包含两个主要组件：前端和后端。前端专注于用户界面，后端处理系统的底层功能和处理。</p>
+<h4 id="3-1-1-前端"><a href="#3-1-1-前端" class="headerlink" title="3.1.1 前端"></a>3.1.1 前端</h4><p>前端使用<a target="_blank" rel="noopener" href="https://webrtc.org/">WebRTC</a>实现了直接从用户摄像头和麦克风获取视频和音频数据的功能，并通过<a target="_blank" rel="noopener" href="https://socket.io/">Socket.IO</a>实时将原始视频和音频数据流传输到服务器。为了最小化延迟，麦克风音频从44.1kHz降采样到16kHz。音频数据被分段传输到服务器，每个包含大约46.4ms音频片段（2048块大小）。视频数据以400x300的分辨率和20 FPS的帧率捕获。前端还负责播放从服务器传输回来的音频和图像数据，实现面对面对话的功能。<br>演示系统的用户界面如图3所示。网站分为三个主要部分，每个部分都有特定的用途。第一部分专注于检测用户的脸部和相应的情感。第二部分提供了全面的对话历史记录，允许用户更正之前被错误识别的语音，并为对话提供视觉参考。最后一部分展示了合成的脸部，包括基本的口型同步功能，以增强对话的自然性和参与度。这三个部分共同创建了一个沉浸式和互动的体验，为用户提供了完整的体验。</p>
+<h4 id="3-1-2-后端"><a href="#3-1-2-后端" class="headerlink" title="3.1.2 后端"></a>3.1.2 后端</h4><p>后端利用eventlet和<a target="_blank" rel="noopener" href="https://flask-socketio.readthedocs.io/en/latest/">Flask-SocketIO</a>进行高效、异步事件处理。接收到的视频和音频包被接收并存储在缓冲区中进行处理。参与度和情感模块在单独的线程中运行，异步地分析缓冲区中的数据。参与度模块确定触发响应的适当时刻，而情感模块捕捉用户的情感状态作为聊天机器人的输入。随后，ASR模型和基于文本的聊天机器人模型将利用获得的信息生成连贯而有意义的文本响应。最后，TTS和音频到脸部模块将利用生成的文本和音频创建动态和逼真的脸部和声音表示，然后将其传输回用户以获得完整和沉浸式的体验。<br>我们专注于易于使用和研究效率，将大部分数据处理和计算放在服务器端，使研究人员摆脱前端开发的复杂性。</p>
+<p><img src="/img/facechat2.png" alt="图2"><br><strong><center>图2：FaceChat框架架构。WebRTC服务器处理用户与服务器之间的视频和音频数据传输。后端采用Python实现。</center></strong></p>
+<p><img src="/img/facechat3.png" alt="图3"><br><strong><center>图3：界面的前端设计</center></strong></p>
+<h3 id="3-2-参与度模块"><a href="#3-2-参与度模块" class="headerlink" title="3.2 参与度模块"></a>3.2 参与度模块</h3><p>为了确定用户的参与度，我们使用语音活动检测 (VAD)。我们采用了一个两阶段的方法，结合<a target="_blank" rel="noopener" href="https://github.com/wiseman/py-webrtcvad">WebRTCVAD</a>和基于模型的 Silero VAD (Team, 2021) 来提高精度和召回率。WebRTCVAD 是 WebRTC 库的一个特性，它通过高斯混合模型实现音频流的实时语音检测。然而，它对人类语音频率的敏感性可能会导致许多误报。为了缓解这个问题，我们还使用了 Silero VAD，这是一个预训练模型，擅长于从各种背景中检测语音。Silero VAD 需要足够的上下文音频，仅使用它可能会导致分割音频时的错误负面结果。因此，通过结合这两个模型，我们实现了精度和召回率的提高。</p>
+<h3 id="3-3-情感分类"><a href="#3-3-情感分类" class="headerlink" title="3.3 情感分类"></a>3.3 情感分类</h3><p>面部表情模块在单独的线程中运行，通过面部表情识别不断监测用户的情感状态。FaceChat 采用了 DeepFace (Serengil 和 Ozpinar, 2021) 这个基于 Python 的库，它整合了 OpenCV (Bradski, 2000) 和最先进的人脸检测算法来处理缓冲区中的图像。对于面部表情识别，我们使用快速且实时的单阶段目标检测模型 SSD (Liu et al., 2016) 作为骨干网络。目前，FaceChat 可以检测用户的四种情感：快乐、悲伤、愤怒和中性。分类后的情感存储在缓冲区中，以调整聊天机器人的响应策略。</p>
+<h3 id="3-4-自动语音识别"><a href="#3-4-自动语音识别" class="headerlink" title="3.4 自动语音识别"></a>3.4 自动语音识别</h3><p>自动语音识别 (ASR) 对于 FaceChat 的聊天机器人来说是至关重要的，它通过将语音转化为文本来处理语音。我们使用最新的 ASR 模型 OpenAI Whisper (Radford et al., 2022)，这是一个基于 Transformer 的模型，训练数据为 68 万小时的语音数据。Whisper 提供通用的语音识别功能，支持多种语言，可以同时进行语音翻译和语言识别。它的语音活动检测功能可以进一步减少误报的语音检测。在 FaceChat 框架中，Whisper 通过并处理由参与度模块识别出的音频片段。识别出的文本随后传递给聊天机器人以进行下一步处理。</p>
+<p><img src="/img/facechat4.png" alt="图4"><br><strong><center>图4：创建一个集成角色和情感检测的聊天机器人的示例提示。</center></strong></p>
+<h3 id="3-5-文字转语音合成"><a href="#3-5-文字转语音合成" class="headerlink" title="3.5 文字转语音合成"></a>3.5 文字转语音合成</h3><p>为了让用户能够使用语音与我们的系统聊天，我们使用一种叫做文字转语音合成 (<a target="_blank" rel="noopener" href="https://github.com/coqui-ai/TTS">TTS</a>) 的技术。使用 TTS，系统会将聊天机器人的文本响应转换为音频响应。有许多 TTS 模型可用，经过仔细考虑，我们选择了 VITS (Kim et al., 2021)，因为它的处理时间快，而且能够生成比以前模型更自然的语音。我们使用公开可用的代码和在 VCTK 数据集 (Veaux et al., 2017) 上预训练的模型权重将 VITS 集成到 TTS 包中。合成的音频随后在用户的设备上播放。</p>
+<h3 id="3-6-说话脸部动画"><a href="#3-6-说话脸部动画" class="headerlink" title="3.6 说话脸部动画"></a>3.6 说话脸部动画</h3><p>对于我们当前的说话头部实现，我们使用外部的 <a target="_blank" rel="noopener" href="https://github.com/talkr-app/talkr-apng">JavaScript 库</a>来将 APNG 文件的播放与生成的音频同步。然而，生成的动画可能会显得不自然，特别是在唇同步、眉毛和眨眼的同步方面。对于未来的工作，我们将集成更强大的 3D 说话化身，例如 Nvidia Audio2Face (Karras et al., 2017)。</p>
+<h3 id="3-7-情感自适应对话系统"><a href="#3-7-情感自适应对话系统" class="headerlink" title="3.7 情感自适应对话系统"></a>3.7 情感自适应对话系统</h3><p>基于文本的对话系统是我们框架的一个关键组件。鉴于现代语言模型的惊人能力，我们选择使用文本对文本的对话系统，因为它具有在语言生成和理解方面提供强大的零样本能力的能力。我们的实现提供了一个基于文本的聊天机器人的抽象接口，使得将来可以使用其他模型，而且该系统可以更新以纳入领域中的新进展。此外，聊天机器人被设计为能够实时与用户交互，能够生成自然且具有上下文意识的响应。</p>
+<p><img src="/img/facechat5.png" alt="图5"><br><strong><center>图5：基于不同用户面部情绪，系统可以做出相应的回应。</center></strong></p>
+<h4 id="3-7-1-情感感知聊天机器人的提示"><a href="#3-7-1-情感感知聊天机器人的提示" class="headerlink" title="3.7.1 情感感知聊天机器人的提示"></a>3.7.1 情感感知聊天机器人的提示</h4><p>GPT-3 (Brown et al., 2020) 是由 OpenAI 开发的最先进的大型语言模型。它在生成文本方面显示出卓越的能力，并且已经应用于许多自然语言处理任务。在这项工作中，我们利用其零样本能力，为 FaceChat 创建了一个情感自适应的聊天机器人。GPT-3 的一个优点是，它可以定制创建不同的角色，具有不同的个性、知识和风格。这是通过使用适当的提示技术来为模型提供上下文和所需角色的明确定义来实现的。因此，FaceChat 可以扩展到不同的应用程序，使其具有高度的灵活性。图 4 显示了情感感知聊天机器人的提示，它由四个关键部分组成。</p>
+<p>第一个组件是 AI 代理的人物设定，它借鉴了 PersonaChat 数据集 (Zhang et al., 2018)。代理的人物设定有助于建立聊天机器人的基本角色。它不仅引起用户的兴趣和增强参与度，而且还为对话提供了一个自然的起点。</p>
+<p>第二个组件是指令组件，它指导 GPT-3 表现得像一个闲聊机器人，使其能够生成与对话上下文相匹配的适当响应。除了考虑对话上下文外，指令还指导模型考虑用户的情感状态，并相应地调整其响应。</p>
+<p>第三个组件是对话历史，它将以前的对话存储在内存中。通过保留这些信息，系统可以保持连贯性，并避免生成与上下文无关的响应。</p>
+<p>最后一个组件生成聊天机器人对用户输入的响应。为了考虑用户的情感状态，我们将他们的面部表情转化为文本表示形式 (例如，用户看起来很高兴)。然后，模型利用这些信息生成响应，以适应用户的情感状态。</p>
+<h4 id="3-7-2-不同情感的分析"><a href="#3-7-2-不同情感的分析" class="headerlink" title="3.7.2 不同情感的分析"></a>3.7.2 不同情感的分析</h4><p>该框架支持不同的情感：快乐、悲伤、愤怒和中性。当用户与聊天机器人交互时，聊天机器人将使用面部表情来识别用户当前的情感状态。情感状态将在模板提示中使用，如图4所示，生成当前轮的系统响应。</p>
+<p>为了评估在不同情感表达下系统响应的变化，我们进行了测试，其中相同的上下文呈现了不同的情感表达。这些测试的目的是分析系统如何响应不同的情感，并如何提供更合适和有效的响应。我们测试的结果如图5所示。当用户表达快乐时，系统会用积极的信息回应，帮助创建积极友好的对话。当用户表达悲伤时，系统会以关心和共情的方式回应，尝试通过提供帮助或指导来提供安慰和支持。当用户表达愤怒时，系统会以冷静和理性的方式回应，旨在缓解局势并更全面地理解用户的关切。当用户表达中性情感状态时，系统会意识到用户可能没有完全投入或沉浸在对话中。在这种情况下，系统可能会尝试通过提出问题或提供旨在引起用户兴趣的提示来吸引用户的注意。</p>
+<table>
+<thead>
+<tr>
+<th>GPT \Whisper</th>
+<th>tiny base small medium large</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>davinci</td>
+<td>1.76 ± 0.29 1.69 ± 0.20 1.74 ± 0.39 1.61 ± 0.23 2.03 ± 0.23</td>
+</tr>
+<tr>
+<td>curie</td>
+<td>0.48 ± 0.02 0.65 ± 0.06 0.67 ± 0.03 0.67 ± 0.03 0.80 ± 0.12</td>
+</tr>
+<tr>
+<td>babbage</td>
+<td>0.53 ± 0.03 0.39 ± 0.02 0.47 ± 0.01 0.66 ± 0.14 0.73 ± 0.10</td>
+</tr>
+<tr>
+<td>ada</td>
+<td>0.40 ± 0.06 0.40 ± 0.07 0.47 ± 0.02 0.55 ± 0.09 0.66 ± 0.09</td>
+</tr>
+</tbody></table>
+<p><strong><center>表格1：使用不同的GPT-3和Whisper模型在FaceChat中评估延迟性能。利用更大的模型可能会增加潜在的延迟，需要做出权衡。延迟是在GPU RTX 3090Ti上测量的。</center></strong></p>
+<h2 id="4-延迟评估"><a href="#4-延迟评估" class="headerlink" title="4.延迟评估"></a>4.延迟评估</h2><p>确保低延迟是我们系统的一个关键因素，因为它直接影响用户体验。因此，我们进行了彻底的评估，以测量我们整个系统的延迟。我们测量用户讲话结束和系统开始讲话之间的延迟。我们发现，主要的延迟来源来自ASR模型Whisper和基于GPT-3的聊天机器人。由于模型大小和延迟之间存在权衡，因此我们评估了各种组合的GPT-3模型和Whisper模型的性能，以优化系统的响应时间。结果如表1所示。使用GPT API可能会导致明显的延迟。Whisper模型正在本地运行，因此它需要相对较小的延迟。我们可以观察到，使用最大的GPT模型davinci会导致超过一秒的延迟。作为一种权衡，它提供了最佳的对话质量。我们的评估发现，用户通常认为约一秒的响应延迟是可以接受的，当延迟超过两秒时会变得明显。基于这些发现，我们决定在我们的最终系统中使用GPT-3 davinci模型和Whisper中等模型的组合。这使我们在模型复杂性和响应时间之间取得平衡，从而实现了更好的用户体验。</p>
+<h2 id="5-未来工作"><a href="#5-未来工作" class="headerlink" title="5.未来工作"></a>5.未来工作</h2><p>当前系统存在许多未来发展的空间，包括将ChatGPT集成到系统中以增强聊天机器人的能力，并整合其他模态，如语音情感或参与度，以改善对话体验。尽管当前的TTS技术已经取得了相当大的成功，但它在生成具有适当情感和语调的语音方面仍然面临挑战。特别是在对话环境中，缺乏上下文意识通常会导致生成的语音不自然。为了解决这个限制，我们计划研究更先进和可控的文本到语音系统，比如VALL-E（Wang等人，2023）。<br>为了进一步改进面部动画，我们的目标是研究高级混合形状生成技术，类似于Nvidia的Audio2Face（Karras等人，2017），以增强面部动画的逼真度。<br>我们当前的框架不支持用户的打断。为了实现这一点，系统必须精确地识别用户的打断意图，并区分自己的语音和用户的语音以防止任何干扰。当用户成功打断时，系统还应该以无缝的方式调整其响应，以保持对话的自然流畅性。我们预计，一个联合训练的VAD，ASR和TTS模型将带来这种能力。</p>
+<h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6.结论"></a>6.结论</h2><p>在本文中，我们介绍了FaceChat，这是一个对话框架，融合了最新技术，为用户提供了无缝和沉浸式的面对面对话体验，具有情感感知能力。FaceChat可用于各种需要面对面对话的应用程序，以准确衡量用户的情感状态和参与度，例如客户服务、咨询和情感支持。FaceChat已经被设计为易于使用，具有基于Python的后端，便于与其他算法和模型进行轻松集成。这个框架非常适合未来在多模态对话系统领域的研究和进展。</p>
+<h2 id="道德考虑："><a href="#道德考虑：" class="headerlink" title="道德考虑："></a>道德考虑：</h2><p>当前的FaceChat设计整合了在互联网数据上进行训练的大型语言模型。这使得整个流程容易产生非事实性、矛盾或令人讨厌的内容。此外，FaceChat容易受到恶意使用，包括数据挖掘、欺诈或侵犯用户隐私。如果FaceChat在情感检测上出现错误，还可能对用户的情绪产生负面影响。</p>
+<h2 id="致谢："><a href="#致谢：" class="headerlink" title="致谢："></a>致谢：</h2><p>我们要感谢索尼研究计划支持本项目，以及与我们讨论的Fuminori Homma、Yuki Okamura、Aditya Vavre和Tsunayuki Ohwa。</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/chatgpt/"># chatgpt</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">上一页</a>
+                <span>· </span>
+                <a href="/">首页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/03/13/visual-chatgpt/">visual-chatgpt</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© naughty dog | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
