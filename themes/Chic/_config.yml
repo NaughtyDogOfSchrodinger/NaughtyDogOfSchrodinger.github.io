@@ -15,7 +15,7 @@ favicon: /favicon.ico
 nickname: Naughty Dog
 
 ### this variable is MarkDown form.
-description: blabla.
+description: 不知路在何方的数字游民
 avatar: /image/cat.PNG
 
 # main menu navigation
@@ -36,7 +36,7 @@ links:
   ZhiHu: https://www.zhihu.com/people/hu-liang
   # LinkedIn:
   # FaceBook:
-  # Twitter:
+  Twitter: https://twitter.com/CFJRpIRgIsRKhaK
   # Skype:
   # CodeSandBox:
   # CodePen:
@@ -47,7 +47,7 @@ links:
 #  Reddit:
   # YouTube:
 #  QQ:
-  Weibo: https://m.weibo.cn/profile/7560095932
+#  Weibo: https://m.weibo.cn/profile/7560095932
   # WeChat:
   Github: https://github.com/NaughtyDogOfSchrodinger
 
